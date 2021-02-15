@@ -8,15 +8,11 @@ def daysBetweenDates(year1, month1, day1, year2, month2, day2):
 
     # TWO OPTIONS
     # [1]
-    import calendar
-    print(calendar.isleap(2012))
-
-    # [2]
-
-    if year1 % 4 == 0 and (year1 % 100 != 0 or year1 % 400 == 0):
-        print("is leap")
-    else:
-        print("is not")
+    from datetime import date
+    date1 = date(year1, month1, day1)
+    date2 = date(year2, month2, day2)
+    delta = date2 - date1
+    return delta.days
 
 
 def testDaysBetweenDates():
@@ -34,5 +30,4 @@ def testDaysBetweenDates():
     print("function is working correctly!")
 
 
-# testDaysBetweenDates()
-daysBetweenDates(2017, 12, 30, 2017, 12, 30)
+testDaysBetweenDates()
