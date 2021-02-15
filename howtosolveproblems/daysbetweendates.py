@@ -64,32 +64,22 @@ def nextDay(year, month, day):
      Simple version: assume every month has 30 days.
     """
     # YOUR CODE HERE
-    start_date = [year, month, day]
-    next_date = list()
-
-    if start_date[1] <= 12 and start_date[2] < 30:
-        next_date.append(year)
-        next_date.append(start_date[1])
-        next_date.append(start_date[2] + 1)
-    elif start_date[1] < 12 and start_date[2] == 30:
-        next_date.append(year)
-        next_date.append(start_date[1] + 1)
-        next_date.append(1)
-    elif start_date[1] == 12 and start_date[2] == 30:
-        year += 1
-        next_date.append(year)
-        next_date.append(1)
-        next_date.append(1)
-
-    print(tuple(next_date))
+    if day < 30:
+        return year, month, day + 1
+    else:
+        if month < 12:
+            return year, month + 1, 1
+        else:
+            return year + 1, 1, 1
 
 
 # nextDay(1999, 12, 30)
-nextDay(2000, 1, 1)
+# (2000, 1, 1)
 # nextDay(2013, 1, 30)
-nextDay(2013, 2, 1)
+# (2013, 2, 1)
 # nextDay(2012, 12, 30)
-nextDay(2013, 1, 1)
+# (2013, 1, 1)
+
 nextDay(2012, 1, 1)
 nextDay(2012, 4, 30)
 nextDay(2012, 12, 1)
