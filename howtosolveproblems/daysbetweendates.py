@@ -34,7 +34,7 @@ def daysBetweenDates(year1, month1, day1, year2, month2, day2):
 
     # YOUR CODE HERE!
     # PSEUDO CODE
-    print(sum([(year2 - year1) * 365, (month2 - month1) * 30, (day2 - day1)]))
+    return sum([(year2 - year1) * 360, (month2 - month1) * 30, (day2 - day1)])
 
 
 def test():
