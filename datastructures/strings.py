@@ -16,19 +16,36 @@ def string_reverser(our_string):
 
 
 # Exercise 2.  Anagrams
-def anagram_checker(str1, str2):
-    '''
-    The goal of this exercise is to write some code 
-    to determine if two strings are anagrams of each other.
-    An anagram is a word (or phrase) 
-    that is formed by rearranging the letters of another word (or phrase).
-    '''
-    return sorted(str1.replace(' ', '').lower()) == sorted(str2.replace(' ', '').lower())
+# def anagram_checker(str1, str2):
+#     '''
+#     The goal of this exercise is to write some code
+#     to determine if two strings are anagrams of each other.
+#     An anagram is a word (or phrase)
+#     that is formed by rearranging the letters of another word (or phrase).
+#     '''
+#     return sorted(str1.replace(' ', '').lower()) == sorted(str2.replace(' ', '').lower())
 
 
-print("Pass" if not (anagram_checker('water', 'waiter')) else "Fail")
-print("Pass" if anagram_checker('Dormitory', 'Dirty room') else "Fail")
-print("Pass" if anagram_checker('Slot machines', 'Cash lost in me') else "Fail")
-print("Pass" if not (anagram_checker('A gentleman', 'Elegant men')) else "Fail")
-print("Pass" if anagram_checker('Time and tide wait for no man',
-                                'Notified madman into water') else "Fail")
+# print("Pass" if not (anagram_checker('water', 'waiter')) else "Fail")
+# print("Pass" if anagram_checker('Dormitory', 'Dirty room') else "Fail")
+# print("Pass" if anagram_checker('Slot machines', 'Cash lost in me') else "Fail")
+# print("Pass" if not (anagram_checker('A gentleman', 'Elegant men')) else "Fail")
+# print("Pass" if anagram_checker('Time and tide wait for no man',
+#                                 'Notified madman into water') else "Fail")
+
+
+# Exercise 3.  Reverse the words in sentence
+
+def word_flipper(our_string):
+    '''
+    Given a sentence, reverse each word in the sentence 
+    while keeping the order the same
+    '''
+    return ' '.join([i[::-1] for i in our_string.split()])
+
+
+print("Pass" if ('retaw' == word_flipper('water')) else "Fail")
+print("Pass" if ('sihT si na elpmaxe' ==
+                 word_flipper('This is an example')) else "Fail")
+print("Pass" if ('sihT si eno llams pets rof ...' ==
+                 word_flipper('This is one small step for ...')) else "Fail")
