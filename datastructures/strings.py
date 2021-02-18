@@ -53,21 +53,16 @@ def string_reverser(our_string):
 
 # Exercise 4.  Hamming Distance
 
-def hamming_distance(str1, str2):
+def hamming_distance(a, b):
     '''
      In information theory, 
      the Hamming distance between two strings of equal length
      is the number of positions at which the corresponding symbols are different.
     '''
-    if len(str1) != len(str2):
-        return None
+    if len(a) == len(b):
+        return sum(ch1 != ch2 for ch1, ch2 in zip(a, b))
     else:
-        positions_at_which_the_corresponding_symbols_are_different = 0
-
-        for i in range(len(str1)):
-            if str1[i] != str2[i]:
-                positions_at_which_the_corresponding_symbols_are_different += 1
-        return positions_at_which_the_corresponding_symbols_are_different
+        return None
 
 
 # Test Cases
