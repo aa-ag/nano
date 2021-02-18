@@ -36,16 +36,45 @@ def string_reverser(our_string):
 
 # Exercise 3.  Reverse the words in sentence
 
-def word_flipper(our_string):
-    '''
-    Given a sentence, reverse each word in the sentence 
-    while keeping the order the same
-    '''
-    return ' '.join([i[::-1] for i in our_string.split()])
+# def word_flipper(our_string):
+#     '''
+#     Given a sentence, reverse each word in the sentence
+#     while keeping the order the same
+#     '''
+#     return ' '.join([i[::-1] for i in our_string.split()])
 
 
-print("Pass" if ('retaw' == word_flipper('water')) else "Fail")
-print("Pass" if ('sihT si na elpmaxe' ==
-                 word_flipper('This is an example')) else "Fail")
-print("Pass" if ('sihT si eno llams pets rof ...' ==
-                 word_flipper('This is one small step for ...')) else "Fail")
+# print("Pass" if ('retaw' == word_flipper('water')) else "Fail")
+# print("Pass" if ('sihT si na elpmaxe' ==
+#                  word_flipper('This is an example')) else "Fail")
+# print("Pass" if ('sihT si eno llams pets rof ...' ==
+#                  word_flipper('This is one small step for ...')) else "Fail")
+
+
+# Exercise 4.  Hamming Distance
+
+def hamming_distance(str1, str2):
+    '''
+     In information theory, 
+     the Hamming distance between two strings of equal length
+     is the number of positions at which the corresponding symbols are different.
+    '''
+    if len(str1) != len(str2):
+        return None
+    else:
+        positions_at_which_the_corresponding_symbols_are_different = 0
+
+        for i in range(len(str1)):
+            if str1[i] != str2[i]:
+                positions_at_which_the_corresponding_symbols_are_different += 1
+        return positions_at_which_the_corresponding_symbols_are_different
+
+
+# Test Cases
+print("Pass" if (10 == hamming_distance('ACTTGACCGGG', 'GATCCGGTACA')) else "Fail")
+print("Pass" if (1 == hamming_distance('shove', 'stove')) else "Fail")
+print("Pass" if (None == hamming_distance(
+    'Slot machines', 'Cash lost in me')) else "Fail")
+print("Pass" if (9 == hamming_distance('A gentleman', 'Elegant men')) else "Fail")
+print("Pass" if (2 == hamming_distance(
+    '0101010100011101', '0101010100010001')) else "Fail")
