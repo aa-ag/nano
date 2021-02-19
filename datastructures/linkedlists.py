@@ -12,9 +12,11 @@ head = Node(1)
 # print(head.value)
 # print(head.next)
 
-new_node = Node(2)
-head.next = new_node
+# new_node = Node(2)
+# head.next = new_node
+# alternatively
+head.next = Node(2)
 # then either:
-print(new_node.value)
+# print(new_node.value)
 # or
 print(head.next.value)
