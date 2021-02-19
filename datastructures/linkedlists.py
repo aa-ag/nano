@@ -12,10 +12,14 @@ head.next.next = Node(4)
 head.next.next.next = Node(3)
 head.next.next.next.next = Node(5)
 
+
 # Exercise 2 -  Traversing the list
+def print_all_nodes(head):
+    current_node = head
 
-current_node = head
+    while current_node is not None:
+        print(current_node.value)
+        current_node = current_node.next
 
-while current_node is not None:
-    print(current_node.value)
-    current_node = current_node.next
+
+print_all_nodes(head)
