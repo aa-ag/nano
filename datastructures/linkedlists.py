@@ -8,5 +8,13 @@ class Node():
         self.next = None
 
 
-head = Node(2)
-print(head.value)
+head = Node(1)
+# print(head.value)
+# print(head.next)
+
+new_node = Node(2)
+head.next = new_node
+# then either:
+print(new_node.value)
+# or
+print(head.next.value)
