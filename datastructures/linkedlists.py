@@ -27,19 +27,36 @@ def print_all_nodes(head):
 
 # Creating a Linked List, less manual
 
+# O(n^2)
+# def create_linked_list(input_list):
+#     head = None
+#     for value in input_list:
+#         if head is None:
+#             head = Node(value)
+#         else:
+#             # Move to the tail (the last node)
+#             current_node = head
+#             while current_node.next:
+#                 current_node = current_node.next
 
-def create_linked_list(input_list):
+#             current_node.next = Node(value)
+#     return head
+
+# O(n)
+def create_linked_list_better(input_list):
+
     head = None
+    tail = None
+
     for value in input_list:
+
         if head is None:
             head = Node(value)
+            tail = head
         else:
-            # Move to the tail (the last node)
-            current_node = head
-            while current_node.next:
-                current_node = current_node.next
+            tail.next = Node(value)
+            tail = tail.next        # update the tail
 
-            current_node.next = Node(value)
     return head
 
 
@@ -61,13 +78,13 @@ def test_function(input_list, head):
 
 
 input_list = [1, 2, 3, 4, 5, 6]
-head = create_linked_list(input_list)
+head = create_linked_list_better(input_list)
 test_function(input_list, head)
 
 input_list = [1]
-head = create_linked_list(input_list)
+head = create_linked_list_better(input_list)
 test_function(input_list, head)
 
 input_list = []
-head = create_linked_list(input_list)
+head = create_linked_list_better(input_list)
 test_function(input_list, head)
