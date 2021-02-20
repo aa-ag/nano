@@ -30,9 +30,6 @@ class LinkedList:
         return out
 
 
-# Task 1. Write definition of `prepend()` function and test its functionality
-# Define a function outside of the class
-# https://stackoverflow.com/questions/9455111/define-a-method-outside-of-class-definition
 def prepend(self, value):
     """ Prepend a value to the beginning of the list. """
     # TODO: Write function to prepend here
@@ -46,13 +43,12 @@ def prepend(self, value):
     return
 
 
-# This is the way to add a function to a class after it has been defined
 LinkedList.prepend = prepend
 
 # Test prepend
-linked_list = LinkedList()
-linked_list.prepend(1)
-assert linked_list.to_list() == [1], f"list contents: {linked_list.to_list()}"
+# linked_list = LinkedList()
+# linked_list.prepend(1)
+# assert linked_list.to_list() == [1], f"list contents: {linked_list.to_list()}"
 
 
 def append(self, value):
@@ -74,15 +70,40 @@ def append(self, value):
 LinkedList.append = append
 
 # Test append - 1
-linked_list.append(3)
-linked_list.prepend(2)
-assert linked_list.to_list() == [
-    2, 1, 3], f"list contents: {linked_list.to_list()}"
+# linked_list.append(3)
+# linked_list.prepend(2)
+# assert linked_list.to_list() == [
+#     2, 1, 3], f"list contents: {linked_list.to_list()}"
 
 # Test append - 2
+# linked_list = LinkedList()
+# linked_list.append(1)
+# assert linked_list.to_list() == [1], f"list contents: {linked_list.to_list()}"
+# linked_list.append(3)
+# assert linked_list.to_list() == [
+#     1, 3], f"list contents: {linked_list.to_list()}"
+
+
+def search(self, value):
+    """ Search the linked list for a node with the requested value and return the node. """
+    # TODO: Write function to search here
+    node = self.head  # start from the head node
+    while node != None:
+        if node.value == value:
+            print(node.value)
+            node = node.next
+
+
+LinkedList.search = search
+
 linked_list = LinkedList()
-linked_list.append(1)
-assert linked_list.to_list() == [1], f"list contents: {linked_list.to_list()}"
+
+# Test search
+linked_list.prepend(2)
+linked_list.prepend(1)
+linked_list.append(4)
 linked_list.append(3)
-assert linked_list.to_list() == [
-    1, 3], f"list contents: {linked_list.to_list()}"
+assert linked_list.search(
+    1).value == 1, f"list contents: {linked_list.to_list()}"
+assert linked_list.search(
+    4).value == 4, f"list contents: {linked_list.to_list()}"
