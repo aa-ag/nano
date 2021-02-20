@@ -32,11 +32,24 @@ class LinkedList:
 
 # Task 1. Write definition of `prepend()` function and test its functionality
 # Define a function outside of the class
+# https://stackoverflow.com/questions/9455111/define-a-method-outside-of-class-definition
 def prepend(self, value):
     """ Prepend a value to the beginning of the list. """
     # TODO: Write function to prepend here
+    if self.head == None:
+        self.head = Node(value)
+        return
+    else:
+        previous_head = self.head
+        self.head = Node(value)
+        self.head.next = previous_head
     return
 
 
 # This is the way to add a function to a class after it has been defined
 LinkedList.prepend = prepend
+
+# Test prepend
+linked_list = LinkedList()
+linked_list.prepend(1)
+assert linked_list.to_list() == [1], f"list contents: {linked_list.to_list()}"
