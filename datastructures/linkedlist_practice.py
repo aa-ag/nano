@@ -53,3 +53,36 @@ LinkedList.prepend = prepend
 linked_list = LinkedList()
 linked_list.prepend(1)
 assert linked_list.to_list() == [1], f"list contents: {linked_list.to_list()}"
+
+
+def append(self, value):
+    """ Append a value to the end of the list. """
+    # TODO: Write function to append here
+    if self.head is None:
+        self.head = Node(value)
+        return
+
+    # Move to the tail (the last node)
+    node = self.head
+    while node.next:
+        node = node.next
+
+    node.next = Node(value)
+    return
+
+
+LinkedList.append = append
+
+# Test append - 1
+linked_list.append(3)
+linked_list.prepend(2)
+assert linked_list.to_list() == [
+    2, 1, 3], f"list contents: {linked_list.to_list()}"
+
+# Test append - 2
+linked_list = LinkedList()
+linked_list.append(1)
+assert linked_list.to_list() == [1], f"list contents: {linked_list.to_list()}"
+linked_list.append(3)
+assert linked_list.to_list() == [
+    1, 3], f"list contents: {linked_list.to_list()}"
