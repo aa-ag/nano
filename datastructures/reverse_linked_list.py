@@ -29,3 +29,11 @@ class LinkedList:
 
     def __repr__(self):
         return str([v for v in self])
+
+
+llist = LinkedList()
+for value in [4, 2, 5, 1, -3, 0]:
+    llist.append(value)
+
+print(llist)
+# [4, 2, 5, 1, -3, 0]
