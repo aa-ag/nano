@@ -34,12 +34,20 @@ class LinkedList:
 
 def reverse(linked_list):
     """
-     Reverse the inputted linked list
+    Reverse the inputted linked list
     """
+    reversed_list = LinkedList()
+    previous_node = None
 
-    # TODO: Write your function to reverse linked lists here
+    for i in linked_list:
+        new_node = Node(i)
 
-    pass
+        new_node.next = previous_node
+        previous_node = new_node
+
+    reversed_list.head = previous_node
+
+    return reversed_list
 
 
 # testing
