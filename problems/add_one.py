@@ -3,7 +3,9 @@ def add_one(arr):
     :param: arr - list of digits representing some number x
     return a list with digits represengint (x + 1)
     """
-    pass
+    one_added = str(int(''.join(str(i) for i in arr)) + 1)
+    answer = [int(j) for j in one_added]
+    return answer
 
 
 # A helper function for Test Cases
