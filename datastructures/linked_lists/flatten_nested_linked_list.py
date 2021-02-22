@@ -80,3 +80,26 @@ def merge(list1, list2):
             merged.append(list2_elt)
             list2_elt = list2_elt.next
     return merged
+
+
+''' In a NESTED LinkedList object, each node will be a simple LinkedList in itself'''
+
+
+class NestedLinkedList(LinkedList):
+    def flatten(self):
+        # TODO: Implement this method to flatten the linked list in ascending sorted order.
+        # <-- self.head is a node for NestedLinkedList
+        return self._flatten(self.head)
+
+    '''  A recursive function '''
+
+    def _flatten(self, node):
+
+        # A termination condition
+        if node.next is None:
+            # <-- First argument is a simple LinkedList
+            return merge(node.value, None)
+
+        # _flatten() is calling itself untill a termination condition is achieved
+        # <-- Both arguments are a simple LinkedList each
+        return merge(node.value, self._flatten(node.next))
