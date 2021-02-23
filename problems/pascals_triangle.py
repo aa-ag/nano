@@ -3,7 +3,7 @@ def nth_row_pascal(n):
     :param: - n - index (0 based)
     return - list() representing nth row of Pascal's triangle
     """
-    pass
+    return [int(i) for i in str(11 ** n)]
 
 
 # tests
