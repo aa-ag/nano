@@ -83,15 +83,35 @@
 # test_case = [n, solution]
 # test_function(test_case)
 
+
 # print actual pascal triangle
 
 def print_pascal_triangle(n):
+    '''
+     Time Complexity: O(N).
+     Each row is an incrementing power of 11 from 0 to n
+    '''
     for i in range(n):
-        # adjust space
+        # format/adjust space
         print(' '*(n-i), end='')
 
-        # compute power of 11
+        # compute power of 11, each digit separated by a space
         print(' '.join(map(str, str(11**i))))
 
 
-print_pascal_triangle(5)
+# --- DRIVER CODE ---
+if __name__ == "__main__":
+    print_pascal_triangle(10)
+
+'''
+          1
+         1 1
+        1 2 1
+       1 3 3 1
+      1 4 6 4 1
+     1 6 1 0 5 1
+    1 7 7 1 5 6 1
+   1 9 4 8 7 1 7 1
+  2 1 4 3 5 8 8 8 1
+ 2 3 5 7 9 4 7 6 9 1
+'''
