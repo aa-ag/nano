@@ -26,7 +26,9 @@ def even_after_odd(head):
     add all odd elements to odds list
     return evens list + odds list
     '''
-    print(head)
+    while head:
+        print(head.data)
+        head = head.next
 
 
 # helper functions for testing purpose
