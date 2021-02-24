@@ -19,7 +19,14 @@ def even_after_odd(head):
     :param - head - head of linked list
     return - updated list with all even elements are odd elements
     """
-    pass
+    # pseudo code
+    '''
+    iterate over linkedlist
+    add all even elements to evens list
+    add all odd elements to odds list
+    return evens list + odds list
+    '''
+    print(head)
 
 
 # helper functions for testing purpose
