@@ -37,7 +37,7 @@ def even_after_odd(head):
         # <-- "next_node" represents the next Node w.r.t. the current Node
         next_node = current.next
 
-        if current.data % 2 == 0:   # <-- current Node is even
+        if current.data % 2 == 0:   # <-- value in current Node is even
 
             # Below
             if even_head is None:   # <-- Make the current Node as the starting Node of EVEN sub-list
