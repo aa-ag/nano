@@ -15,29 +15,54 @@ class Node:
 
 
 def even_after_odd(head):
-    """
-    :param - head - head of linked list
-    return - updated list with all even elements are odd elements
-    """
-    # pseudo code
-    '''
-    iterate over linkedlist
-    add all even elements to evens list
-    add all odd elements to odds list
-    return evens list + odds list
-    '''
-    evens = list()
-    odds = list()
 
-    while head:
-        if head.data % 2 == 0:
-            evens.append(head.data)
-            head = head.next
+    if head is None:
+        return head
+
+    # Helper references
+    ''' `even_head` and `even_tail` represents the starting and current ending of the "EVEN" sub-list '''
+    even_head = None
+    even_tail = None
+
+    ''' `odd_head` and `odd_tail` represents the starting and current ending of the "ODD" sub-list '''
+    odd_head = None
+    odd_tail = None
+
+    # <-- "current" represents the current Node.
+    current = head
+
+    # Loop untill there are Nodes available in the LinkedList
+    while current:                  # <-- "current" will be updated at the end of each iteration
+
+        # <-- "next_node" represents the next Node w.r.t. the current Node
+        next_node = current.next
+
+        if current.data % 2 == 0:   # <-- current Node is even
+
+            # Below
+            if even_head is None:   # <-- Make the current Node as the starting Node of EVEN sub-list
+                even_head = current     # `even_head` will now point where `current` is already pointing
+                even_tail = even_head
+            else:                   # <-- Append the current even node to the tail of EVEN sub-list
+                even_tail.next = current
+                even_tail = even_tail.next
         else:
-            odds.append(head.data)
-            head = head.next
+            if odd_head is None:    # <-- Make the current Node as the starting Node of ODD sub-list
+                odd_head = current
+                odd_tail = odd_head
+            else:                   # <-- Append the current odd node to the tail of ODD sub-list
+                odd_tail.next = current
+                odd_tail = odd_tail.next
+        current.next = None
+        current = next_node         # <-- Update "head" Node, for next iteration
 
-    print(odds + evens)
+    if odd_head is None:            # <-- Special case, when there are no odd Nodes
+        return even_head
+
+    # <-- Append the EVEN sub-list to the tail of ODD sub-list
+    odd_tail.next = even_head
+
+    return odd_head
 
 
 # helper functions for testing purpose
