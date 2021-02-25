@@ -21,13 +21,12 @@ class Stack:
         for i, element in enumerate(old_arr):
             self.arr[i] = element
 
-    # TODO: Add the size method
+    # class version
     def size(self):
-        return len(self.arr)
+        return self.num_elements
 
-    # TODO: Add the is_empty method
     def is_empty(self):
-        return all(i == None for i in self.arr)
+        return self.num_elements == 0
 
 
 ###--- DRIVER CODE ---###
