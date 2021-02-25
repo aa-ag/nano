@@ -21,12 +21,18 @@ class Stack:
             self.arr[i] = element
 
 
-stack = Stack()
-print(stack.arr)
-# [None, None, None, None, None, None, None, None, None, None]
+###--- DRIVER CODE ---###
 
-for _ in range(11):
-    stack.push_to_stack(_)
+if __name__ == "__main__":
+    stack = Stack()
+    print(stack.arr)
+    # [None, None, None, None, None, None, None, None, None, None]
 
-print(stack.arr)
-# [1, 2, 3, None, None, None, None, None, None, None]
+    for _ in range(11):
+        stack.push_to_stack(_)
+
+    print(stack.arr)
+    '''
+    Stackoverflow! Increasing capacity...
+    [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, None, None, None, None, None, None, None, None, None]
+    '''
