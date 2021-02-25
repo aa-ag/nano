@@ -1,3 +1,4 @@
+###--- CLASS & Methods ---###
 class Stack:
     def __init__(self, initial_size=10):
         self.arr = [None for _ in range(initial_size)]
@@ -20,19 +21,21 @@ class Stack:
         for i, element in enumerate(old_arr):
             self.arr[i] = element
 
+    # TODO: Add the size method
+    def size(self):
+        return len(self.arr)
+
+    # TODO: Add the is_empty method
+    def is_empty(self):
+        return all(i == None for i in self.arr)
+
 
 ###--- DRIVER CODE ---###
-
 if __name__ == "__main__":
     stack = Stack()
-    print(stack.arr)
-    # [None, None, None, None, None, None, None, None, None, None]
-
-    for _ in range(11):
-        stack.push_to_stack(_)
-
-    print(stack.arr)
-    '''
-    Stackoverflow! Increasing capacity...
-    [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, None, None, None, None, None, None, None, None, None]
-    '''
+    print(stack.size())  # Should return 0
+    print(stack.is_empty())  # Should return True
+    # Let's push an item onto the stack and check again
+    stack.push_to_stack("Test")
+    print(stack.size())  # Should return 1
+    print(stack.is_empty())  # Should return False
