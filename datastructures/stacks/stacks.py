@@ -14,6 +14,20 @@ class Stack:
         self.next_index += 1
         self.num_elements += 1
 
+    def pop(self):
+        if self.is_empty():
+            self.next_index = 0
+            return None
+        self.next_index -= 1
+        self.num_elements -= 1
+        return self.arr[self.next_index]
+
+    def size(self):
+        return self.num_elements
+
+    def is_empty(self):
+        return self.num_elements == 0
+
     def handle_stack_capacity(self):
         old_arr = self.arr
 
@@ -21,20 +35,12 @@ class Stack:
         for i, element in enumerate(old_arr):
             self.arr[i] = element
 
-    # class version
-    def size(self):
-        return self.num_elements
-
-    def is_empty(self):
-        return self.num_elements == 0
-
 
 ###--- DRIVER CODE ---###
 if __name__ == "__main__":
     stack = Stack()
-    print(stack.size())  # Should return 0
-    print(stack.is_empty())  # Should return True
-    # Let's push an item onto the stack and check again
+    # We first have to push an item so that we'll have something to pop
     stack.push_to_stack("Test")
-    print(stack.size())  # Should return 1
-    print(stack.is_empty())  # Should return False
+    print(stack.pop())  # Should return the popped item, which is "Test"
+    # Should return None, since there's nothing left in the stack
+    print(stack.pop())
