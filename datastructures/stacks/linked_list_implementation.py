@@ -41,3 +41,16 @@ class Stack:
         self.head = self.head.next
         self.num_elements -= 1
         return value
+
+
+###--- TESTS ---###
+# Setup
+stack = Stack()
+stack.push_to_stack(10)
+stack.push_to_stack(20)
+stack.push_to_stack(30)
+stack.push_to_stack(40)
+stack.push_to_stack(50)
+
+# Test size
+print("Pass" if (stack.get_stack_size() == 5) else "Fail")
