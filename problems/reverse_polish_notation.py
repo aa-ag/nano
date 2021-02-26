@@ -46,11 +46,31 @@ class Stack:
 def evaluate_post_fix(input_list):
     stack = Stack()
 
-    # first, identify operators
-    # then, apply operator to each pair before it
-    # store that result temporarily and push to stack
-    for i in input_list:
-        pass
+    for element in input_list:
+        if element == '*':
+            second_num_in_pair = stack.pop()
+            first_num_in_pair = stack.pop()
+            operation_result = first_num_in_pair * second_num_in_pair
+            stack.push(operation_result)
+        elif element == '/':
+            second_num_in_pair = stack.pop()
+            first_num_in_pair = stack.pop()
+            operation_result = int(first_num_in_pair / second_num_in_pair)
+            stack.push(operation_result)
+        elif element == '+':
+            second_num_in_pair = stack.pop()
+            first_num_in_pair = stack.pop()
+            operation_result = first_num_in_pair + second_num_in_pair
+            stack.push(operation_result)
+        elif element == '-':
+            second_num_in_pair = stack.pop()
+            first_num_in_pair = stack.pop()
+            operation_result = first_num_in_pair - second_num_in_pair
+            stack.push(operation_result)
+        else:
+            stack.push(int(element))
+
+    return stack.pop()  # pop for top element
 
 
 ###--- TESTS ---###
