@@ -41,10 +41,23 @@ class Stack:
 
 ###--- REVERSE STACK ---###
 def reverse_stack(stack):
-    pass
+    if stack.is_empty():
+        return -1
+    if stack.size() == 1:
+        return stack
+    else:
+        new_stack = Stack()
 
+        node = stack.head
+        while node:
+            new_stack.push(stack.pop())
+            node = node.next
+
+    return new_stack
 
 ###--- TESTS ---###
+
+
 def test_function(test_case):
     stack = Stack()
     for num in test_case:
@@ -60,6 +73,10 @@ def test_function(test_case):
         else:
             index += 1
     print("Pass")
+
+
+test_case_0 = []
+test_function(test_case_0)
 
 
 test_case_1 = [1, 2, 3, 4]
