@@ -1,3 +1,4 @@
+###--- CREATE STACK ----###
 class Node:
     def __init__(self, data):
         self.data = data
@@ -39,3 +40,20 @@ class Stack:
 
     def is_stack_empty(self):
         return self.num_elements == 0
+
+
+###--- USE STACK TO EVALUATE INPUTS ----###
+def evaluate_post_fix(input_list):
+    stack = Stack()
+
+    for _ in input_list:
+        if _.isdigit():
+            stack.push(_)
+
+    node = stack.head
+    while node:
+        print(node.data)
+        node = node.next
+
+
+evaluate_post_fix(["3", "1", "+", "4", "*"])
