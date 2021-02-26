@@ -54,3 +54,14 @@ stack.push_to_stack(50)
 
 # Test size
 print("Pass" if (stack.get_stack_size() == 5) else "Fail")
+
+# Test pop
+print("Pass" if (stack.pop_from_stack() == 50) else "Fail")
+
+# Test push
+stack.push_to_stack(60)
+print("Pass" if (stack.pop_from_stack() == 60) else "Fail")
+print("Pass" if (stack.pop_from_stack() == 40) else "Fail")
+print("Pass" if (stack.pop_from_stack() == 30) else "Fail")
+stack.push_to_stack(50)
+print("Pass" if (stack.get_stack_size() == 3) else "Fail")
