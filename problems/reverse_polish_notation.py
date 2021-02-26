@@ -46,14 +46,31 @@ class Stack:
 def evaluate_post_fix(input_list):
     stack = Stack()
 
-    for _ in input_list:
-        if _.isdigit():
-            stack.push(_)
-
-    node = stack.head
-    while node:
-        print(node.data)
-        node = node.next
+    # first, identify operators
+    # then, apply operator to each pair before it
+    # store that result temporarily and push to stack
+    for i in input_list:
+        pass
 
 
-evaluate_post_fix(["3", "1", "+", "4", "*"])
+###--- TESTS ---###
+def test_function(test_case):
+    output = evaluate_post_fix(test_case[0])
+    print(output)
+    if output == test_case[1]:
+        print("Pass")
+    else:
+        print("Fail")
+
+
+test_case_1 = [["3", "1", "+", "4", "*"], 16]
+test_function(test_case_1)
+
+
+test_case_2 = [["4", "13", "5", "/", "+"], 6]
+test_function(test_case_2)
+
+
+test_case_3 = [["10", "6", "9", "3", "+", "-11",
+                "*", "/", "*", "17", "+", "5", "+"], 22]
+test_function(test_case_3)
