@@ -14,6 +14,8 @@ class Stack:
 
     def pop(self):
         # TODO: Pop item off of the Stack
+        if self.size() == 0:
+            return None
         return self.items.pop()
 
 
@@ -31,3 +33,7 @@ stack.pop()
 stack.pop()
 
 print("Pass" if (stack.items[0] == 'Web Page 1') else "Fail")
+
+stack.pop()
+
+print("Pass" if (stack.pop() == None) else "Fail")
