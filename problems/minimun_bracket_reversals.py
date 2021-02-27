@@ -43,43 +43,44 @@ class Stack:
 
 ###--- FIND MINIMUN BRACKET REVERSAL ---###
 def minimum_bracket_reversals(input_string):
-    """
-    Calculate the number of reversals to fix the brackets
 
-    Args:
-       input_string(string): Strings to be used for bracket reversal calculation
-    Returns:
-       int: Number of breacket reversals needed
-    """
+    stack = Stack()
 
-    # TODO: Write function here
+    for i in input_string:
+        stack.push(i)
 
-    pass
+    node = stack.head
+    while node:
+        print(node.data)
+        node = node.next
+
+    print(stack.size())
 
 
+minimum_bracket_reversals("}}}}")
 ###--- TESTING ---###
-def test_function(test_case):
-    input_string = test_case[0]
-    expected_output = test_case[1]
-    output = minimum_bracket_reversals(input_string)
+# def test_function(test_case):
+#     input_string = test_case[0]
+#     expected_output = test_case[1]
+#     output = minimum_bracket_reversals(input_string)
 
-    if output == expected_output:
-        print("Pass")
-    else:
-        print("Fail")
+#     if output == expected_output:
+#         print("Pass")
+#     else:
+#         print("Fail")
 
 
-test_case_1 = ["}}}}", 2]
-test_function(test_case_1)
+# test_case_1 = ["}}}}", 2]
+# test_function(test_case_1)
 
-test_case_2 = ["}}{{", 2]
-test_function(test_case_2)
+# test_case_2 = ["}}{{", 2]
+# test_function(test_case_2)
 
-test_case_3 = ["{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{}}}}}", 13]
-test_function(test_case_1)
+# test_case_3 = ["{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{}}}}}", 13]
+# test_function(test_case_1)
 
-test_case_4 = ["}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{", 2]
-test_function(test_case_2)
+# test_case_4 = ["}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{", 2]
+# test_function(test_case_2)
 
-test_case_5 = ["}}{}{}{}{}{}{}{}{}{}{}{}{}{}{}", 1]
-test_function(test_case_3)
+# test_case_5 = ["}}{}{}{}{}{}{}{}{}{}{}{}{}{}{}", 1]
+# test_function(test_case_3)
