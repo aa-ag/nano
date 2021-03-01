@@ -23,4 +23,19 @@ class Queue:
             self.tail = self.head
         self.num_elements += 1
 
+    def dequeue(self, data):
+        if self.is_empty():
+            return None
+        old_head = self.head.data
+        self.head = self.head.next
+        self.num_elements -= 1
+        return old_head
+
+    def size(self):
+        return self.num_elements
+
+    def is_empty(self):
+        return self.num_elements == 0
+
+
 ###--- TEST ---###
