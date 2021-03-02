@@ -78,18 +78,21 @@ class Queue:
 
 
 def reverse_queue(queue):
-    """
-    Reverese the input queue
+    if queue.is_empty():
+        return -1
 
-    Args:
-       queue(queue),str2(string): Queue to be reversed
-    Returns:
-       queue: Reveresed queue
-    """
+    if queue.size() == 1:
+        return queue
+    else:
+        new_queue = Queue()
 
-    # TODO: Write reversed queue function
+        node = queue.head
 
-    pass
+        while node:
+            new_queue.enqueue(queue.dequeue())
+            node = node.next
+
+    return new_queue
 
 
 def test_function(test_case):
