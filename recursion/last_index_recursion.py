@@ -1,14 +1,19 @@
+# Solution
 def last_index(arr, target):
-    """
-    :param: arr - input array
-    :param: target - integer element
-    return: int - last index of target in arr
-    TODO: complete this method to find the last index of target in arr
-    """
-    if target not in arr:
+    # we start looking from the last index
+    return last_index_arr(arr, target, len(arr) - 1)
+
+
+def last_index_arr(arr, target, index):
+    if index < 0:
         return -1
 
-    return max(i for i, n in enumerate(arr) if n == target)
+    # check if target is found
+    if arr[index] == target:
+        return index
+
+    # else make a recursive call to the rest of the array
+    return last_index_arr(arr, target, index - 1)
 
 
 def test_function(test_case):
