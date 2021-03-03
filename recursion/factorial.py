@@ -3,12 +3,9 @@
 def factorial(n):
     # TODO: Write your recursive factorial function here
 
-    if n == 0:
-        return 1
-    elif n == 1:
-        return 1
-    else:
-        return n * factorial(n - 1)
+	if n == 0:
+        return 1  # by definition of 0!
+    return n * factorial(n-1)
 
 
 # Test Cases
