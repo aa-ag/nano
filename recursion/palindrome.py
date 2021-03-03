@@ -1,17 +1,23 @@
+def reverse_string(input):
+    if len(input) == 0:
+        return ""
+    else:
+        first_character = input[0]
+        the_rest = slice(1, None)
+        sub_string = input[the_rest]
+
+        reversed_substring = reverse_string(sub_string)
+
+        return reversed_substring + first_character
+
+
 def is_palindrome(input):
-    """
-    Return True if input is palindrome, False otherwise.
+    if len(input) == 1:
+        return input
+    else:
+        return input == reverse_string(input)
 
-    Args:
-       input(str): input to be checked if it is palindrome
-    """
-
-    # TODO: Write your recursive palindrome checker here
-    pass
-
-
-# Test Cases
-
+        # Test Cases
 print("Pass" if (is_palindrome("")) else "Fail")
 print("Pass" if (is_palindrome("a")) else "Fail")
 print("Pass" if (is_palindrome("madam")) else "Fail")
