@@ -3,7 +3,7 @@
 def factorial(n):
     # TODO: Write your recursive factorial function here
 
-	if n == 0:
+    if n == 0:
         return 1  # by definition of 0!
     return n * factorial(n-1)
 
