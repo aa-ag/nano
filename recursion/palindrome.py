@@ -1,23 +1,18 @@
-def reverse_string(input):
-    if len(input) == 0:
-        return ""
-    else:
-        first_character = input[0]
-        the_rest = slice(1, None)
-        sub_string = input[the_rest]
-
-        reversed_substring = reverse_string(sub_string)
-
-        return reversed_substring + first_character
-
-
 def is_palindrome(input):
-    if len(input) == 1:
-        return input
+    if len(input) <= 1:
+        return True
     else:
-        return input == reverse_string(input)
+        first_char = input[0]
+        last_char = input[-1]
 
-        # Test Cases
+        # sub_input is input with first and last char removed
+        sub_input = input[1:-1]
+
+        # recursive call, if first and last char are identical, else return False
+        return (first_char == last_char) and is_palindrome(sub_input)
+
+
+# Test Cases
 print("Pass" if (is_palindrome("")) else "Fail")
 print("Pass" if (is_palindrome("a")) else "Fail")
 print("Pass" if (is_palindrome("madam")) else "Fail")
