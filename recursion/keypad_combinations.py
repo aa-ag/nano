@@ -22,19 +22,13 @@ def get_characters(num):
 def keypad(num):
     # base case to break recursion
     if num == 0:
-        print([""])
+        return [""]
+
+    elif 1 < num <= 9:
+        return list(get_characters(num))
+
     else:
-        # find out all the possible strings
-        # that can be made using digits of input num.
-        # Return these strings in a list.
-        # first, get characters
-        characters = list()
-
-        for digit in str(num):
-            d = get_characters(int(digit))
-            characters.append(d)
-
-        print(characters)
+        pass
 
 
 keypad(0)  # ['']
