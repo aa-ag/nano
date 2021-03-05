@@ -87,8 +87,8 @@ input = 8
 expected_output = sorted(["t", "u", "v"])
 test_keypad(input, expected_output)
 
-
-input = 355
+# # Example case
+input = 354
 expected_output = sorted(["djg", "ejg", "fjg", "dkg", "ekg", "fkg", "dlg", "elg", "flg", "djh", "ejh", "fjh",
                           "dkh", "ekh", "fkh", "dlh", "elh", "flh", "dji", "eji", "fji", "dki", "eki", "fki", "dli", "eli", "fli"])
 test_keypad(input, expected_output)
