@@ -52,7 +52,7 @@ def keypad(num):
             new_item = item + character
             output.append(new_item)
 
-    return output                                # returns a LIST of strings
+    return output
 
 
 def test_keypad(input, expected_output):
@@ -88,7 +88,7 @@ expected_output = sorted(["t", "u", "v"])
 test_keypad(input, expected_output)
 
 
-input = 354
+input = 355
 expected_output = sorted(["djg", "ejg", "fjg", "dkg", "ekg", "fkg", "dlg", "elg", "flg", "djh", "ejh", "fjh",
                           "dkh", "ekh", "fkh", "dlh", "elh", "flh", "dji", "eji", "fji", "dki", "eki", "fki", "dli", "eli", "fli"])
 test_keypad(input, expected_output)
