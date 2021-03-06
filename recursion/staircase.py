@@ -1,10 +1,12 @@
 def staircase(n):
-    '''Hint'''
-    # Base Case - What holds true for minimum steps possible i.e., n == 0, 1, 2 or 3? Return the number of ways the child can climb n steps.
+    if n <= 0:
+        return 1
+    elif n == 1 or n == 2:
+        return n
+    elif n == 3:
+        return 4
 
-    # Recursive Step - Split the solution into base case if n > 3.
-
-    pass
+    return staircase(n - 1) + staircase(n - 2) + staircase(n - 3)
 
 
 def test_function(test_case):
