@@ -6,22 +6,18 @@ def all_codes(number):
     if number == 0:
         return [""]
 
-    # calculation for two right-most digits e.g. if number = 1123, this calculation is meant for 23
     remainder = number % 100
     output_100 = list()
     if remainder <= 26 and number > 9:
 
-        # get all codes for the remaining number
         output_100 = all_codes(number // 100)
         alphabet = get_alphabet(remainder)
 
         for index, element in enumerate(output_100):
             output_100[index] = element + alphabet
 
-    # calculation for right-most digit e.g. if number = 1123, this calculation is meant for 3
     remainder = number % 10
 
-    # get all codes for the remaining number
     output_10 = all_codes(number // 10)
     alphabet = get_alphabet(remainder)
 
