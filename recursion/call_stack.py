@@ -11,8 +11,10 @@
 # result = add(5, 7)
 
 def print_integers(n):
-    for i in range(n, 0, -1):
-        print(i)
+    if n <= 0:
+        return
+    print(n)
+    print_integers(n - 1)
 
 
 print_integers(5)
