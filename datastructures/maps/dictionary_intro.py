@@ -46,3 +46,16 @@ locations['North America']['USA'].append('Atlanta')
 locations['Asia']['China'] = ['Shanghai']
 
 print(locations)
+'''
+ {'North America': {'USA': ['Mountain View', 'Atlanta']}, 
+ 'Asia': {'India': ['Bangalore', 'New Delhi'], 'China': ['Shanghai']}}
+'''
+
+# TODO: Print a list of all cities in the USA in alphabetic order.
+# for city in sorted(locations['North America']['USA']):
+#     print(city)
+
+# TODO: Print all cities in Asia, in alphabetic order, next to the name of the country
+for country in locations['Asia']:
+    for city in sorted(locations['Asia'][country]):
+        print(country, city)
