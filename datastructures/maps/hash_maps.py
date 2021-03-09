@@ -2,7 +2,7 @@ class HashMap:
 
     def __init__(self, initial_size=10):
         self.bucket_array = [None for _ in range(initial_size)]
-        self.p = 37                  # a prime numbers
+        self.p = 31
         self.num_entries = 0
 
     def put(self, key, value):
@@ -11,15 +11,15 @@ class HashMap:
     def get(self, key):
         pass
 
-    # Returns the bucket_index
     def get_bucket_index(self, key):
         # The returned hash code will be the bucket_index
-        return self.get_hash_code(key)
-
-    # Returns the hash code
+        bucket_index = self.get_hash_code(key)
+        return bucket_index
 
     def get_hash_code(self, key):
         key = str(key)
+        # length of array to be used in Mod operation
+        num_buckets = len(self.bucket_array)
 
         # represents (self.p^0) which is 1
         current_coefficient = 1
@@ -28,18 +28,24 @@ class HashMap:
 
         for character in key:
             hash_code += ord(character) * current_coefficient
+            # compress hash_code (Mod operation)
+            hash_code = hash_code % num_buckets
             current_coefficient *= self.p
+            # compress coefficient as well
+            current_coefficient = current_coefficient % num_buckets
 
-        return hash_code  # The generated hash code will be the bucket_index
+        # one last compression before returning
+        return hash_code % num_buckets
+
+    def size(self):
+        return self.num_entries
 
 
+# Check the bucket_index for two different strings made with same set of characters
 hash_map = HashMap()
 
-bucket_index = hash_map.get_bucket_index("abcd")
+bucket_index = hash_map.get_bucket_index("one")
 print(bucket_index)
 
-
-hash_map = HashMap()
-
-bucket_index = hash_map.get_bucket_index("bcda")
-print(bucket_index)
+bucket_index = hash_map.get_bucket_index("neo")
+print(bucket_index)                                  # Collision might occur
