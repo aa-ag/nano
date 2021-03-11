@@ -1,10 +1,21 @@
 def pair_sum_to_target(input_list, target):
-    # TODO: Write pair sum to target function
+    # Create a dictionary.
+    # Each element of the input_list would become a "key", and
+    # the corresponding index in the input_list would become the "value"
+    index_dict = dict()
 
-    for i in range(len(input_list)):
-        for j in range(len(input_list[i:])):
-            if input_list[i] + input_list[j] == target:
-                return [i, j]
+    # Traverse through the input_list
+    for index, element in enumerate(input_list):
+
+        # `in` is the way to test for the existence of a "key" in a dictionary
+        if (target - element) in index_dict:
+
+            # Return the TWO indices that sum to the target
+            return [index_dict[target - element], index]
+
+        index_dict[element] = index
+
+    return [-1, -1]              # If the target is not achieved
 
 
 def test_function(test_case):
