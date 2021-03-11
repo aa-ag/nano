@@ -27,7 +27,7 @@ class HashTable(object):
             if string in self.table[hv]:
                 return hv
 
-        return -1                                # otherwise
+        return -1  # otherwise
 
     '''Helper function to calulate a hash value from a string.'''
 
