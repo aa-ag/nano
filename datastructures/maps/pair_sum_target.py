@@ -1,6 +1,10 @@
 def pair_sum_to_target(input_list, target):
     # TODO: Write pair sum to target function
-    pass
+
+    for i in range(len(input_list)):
+        for j in range(len(input_list[i:])):
+            if input_list[i] + input_list[j] == target:
+                return [i, j]
 
 
 def test_function(test_case):
