@@ -21,13 +21,9 @@ class Node:
 
 
 # Create Binary Tree
-class BinaryTree():
-    def __init__(self):
-        '''
-         Class names should normally use the CapWords convention.
-         https://www.python.org/dev/peps/pep-0008/#id41
-        '''
-        self.root = None
+class Tree:
+    def __init__(self, value):
+        self.root = Node(value)
 
     def get_root(self):
         return self.root
