@@ -1,22 +1,19 @@
-# Task 02: add a constructor that takes the value as a parameter
 class Node:
-    def __init__(self, value=None):
-        self.value = value
+    def __init__(self, value):
         self.left = None
         self.right = None
+        self.value = value
+
+    def get_value(self):
+        print(self.value)
 
 
-# tests
-node0 = Node()
-print(f"""
-value: {node0.value}
-left: {node0.left}
-right: {node0.right}
-""")
+# Check
 
 node0 = Node("apple")
-print(f"""
-value: {node0.value}
-left: {node0.left}
-right: {node0.right}
-""")
+node1 = Node("banana")
+node2 = Node("orange")
+
+node0.get_value()
+node1.get_value()
+node2.get_value()
