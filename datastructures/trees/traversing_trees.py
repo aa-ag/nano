@@ -140,8 +140,12 @@ if node.has_left_child():
     node = node.get_left_child()
     stack.push(node)
 
-print(f"""
-visit_order {visit_order} 
-stack:
-{stack}
-""")
+# print(f"""
+# visit_order {visit_order}
+# stack:
+# {stack}
+# """)
+
+# visit dates
+visit_order.append(node.get_value())
+print(f"visit order {visit_order}")
