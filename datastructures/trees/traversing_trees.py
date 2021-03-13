@@ -129,3 +129,45 @@ print(f"{node} has right child? {node.has_right_child()}")
 # since "dates" is a leaf node (has no children), we can start to retrace our steps
 # in other words, we can pop it off the stack.
 print(stack.pop())
+
+print(stack)
+
+# now we'll set the node to the new top of the stack, which is banana
+node = stack.top()
+print(node)
+
+# we already checked for banana's left child, so we'll check for its right child
+print(f"{node} has right child? {node.has_right_child()}")
+
+# banana doesn't have a right child, so we're also done tracking it.
+# so we can pop banana off the stack
+print(f"pop {stack.pop()} off stack")
+print(f"""
+stack
+{stack}
+""")
+
+# now we'll track the new top of the stack, which is apple
+node = stack.top()
+print(node)
+
+
+# we've already checked if apple has a left child; we'll check if it has a right child
+print(f"{node} has right child? {node.has_right_child()}")
+
+# since it has a right child (cherry),
+# we'll visit cherry and add it to the stack.
+if node.has_right_child():
+    node = node.get_right_child()
+    stack.push(node)
+
+print(f"""
+visit_order {visit_order} 
+stack
+{stack}
+""")
+
+# visit cherry
+print(f"visit {node}")
+visit_order.append(node.get_value())
+print(f"""visit_order: {visit_order}""")
