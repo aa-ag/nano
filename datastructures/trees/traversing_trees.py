@@ -123,3 +123,25 @@ visit_order {visit_order}
 stack:
 {stack}
 """)
+
+
+# visit banana
+print(f"visit {node}")
+visit_order.append(node.get_value())
+print(f"""visit_order {visit_order}""")
+
+
+# check if banana has a left child
+print(f"{node} has left child? {node.has_left_child()}")
+
+# since banana has a left child "dates"
+# we'll visit "dates" and add it to the stack
+if node.has_left_child():
+    node = node.get_left_child()
+    stack.push(node)
+
+print(f"""
+visit_order {visit_order} 
+stack:
+{stack}
+""")
