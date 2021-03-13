@@ -171,3 +171,9 @@ stack
 print(f"visit {node}")
 visit_order.append(node.get_value())
 print(f"""visit_order: {visit_order}""")
+
+# Now we'll check if cherry has a left child
+print(f"{node} has left child? {node.has_left_child()}")
+
+# it doesn't, so we'll check if it has a right child
+print(f"{node} has right child? {node.has_right_child()}")
