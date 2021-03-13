@@ -84,3 +84,13 @@ tree = Tree("apple")
 tree.get_root().set_left_child(Node("banana"))
 tree.get_root().set_right_child(Node("cherry"))
 tree.get_root().get_left_child().set_left_child(Node("dates"))
+
+# check Stack
+stack = Stack()
+stack.push("apple")
+stack.push("banana")
+stack.push("cherry")
+stack.push("dates")
+print(stack.pop())
+print("\n")
+print(stack)
