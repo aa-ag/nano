@@ -124,3 +124,8 @@ print(f"{node} has left child? {node.has_left_child()}")
 
 # since dates doesn't have a left child, we'll check if it has a right child
 print(f"{node} has right child? {node.has_right_child()}")
+
+
+# since "dates" is a leaf node (has no children), we can start to retrace our steps
+# in other words, we can pop it off the stack.
+print(stack.pop())
