@@ -108,3 +108,18 @@ visit_order {visit_order}
 stack:
 {stack}
 """)
+
+# check if apple has a left child
+print(f"{node} has left child? {node.has_left_child()}")
+
+# since apple has a left child (banana)
+# we'll visit banana and add it to the stack
+if node.has_left_child():
+    node = node.get_left_child()
+    stack.push(node)
+
+print(f"""
+visit_order {visit_order} 
+stack:
+{stack}
+""")
