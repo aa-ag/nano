@@ -45,3 +45,10 @@ class Tree():
 
     def get_root(self):
         return self.root
+
+
+# create a tree and add some nodes
+tree = Tree("apple")
+tree.get_root().set_left_child(Node("banana"))
+tree.get_root().set_right_child(Node("cherry"))
+tree.get_root().get_left_child().set_left_child(Node("dates"))
