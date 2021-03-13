@@ -47,6 +47,13 @@ class Tree():
         return self.root
 
 
+# create a tree and add some nodes
+tree = Tree("apple")
+tree.get_root().set_left_child(Node("banana"))
+tree.get_root().set_right_child(Node("cherry"))
+tree.get_root().get_left_child().set_left_child(Node("dates"))
+
+
 # Let's define a stack to help keep track of the tree nodes
 class Stack():
     def __init__(self):
@@ -79,23 +86,6 @@ class Stack():
             return "<stack is empty>"
 
 
-# create a tree and add some nodes
-tree = Tree("apple")
-tree.get_root().set_left_child(Node("banana"))
-tree.get_root().set_right_child(Node("cherry"))
-tree.get_root().get_left_child().set_left_child(Node("dates"))
-
-# check Stack
-# stack = Stack()
-# stack.push("apple")
-# stack.push("banana")
-# stack.push("cherry")
-# stack.push("dates")
-# print(stack.pop())
-# print("\n")
-# print(stack)
-
-
 visit_order = list()
 stack = Stack()
 
@@ -103,33 +93,11 @@ stack = Stack()
 node = tree.get_root()
 stack.push(node)
 
-print(f"""
-visit_order {visit_order} 
-stack:
-{stack}
-""")
-
-# check if apple has a left child
-print(f"{node} has left child? {node.has_left_child()}")
-
 # since apple has a left child (banana)
 # we'll visit banana and add it to the stack
 if node.has_left_child():
     node = node.get_left_child()
     stack.push(node)
-
-print(f"""
-visit_order {visit_order} 
-stack:
-{stack}
-""")
-
-
-# visit banana
-print(f"visit {node}")
-visit_order.append(node.get_value())
-print(f"""visit_order {visit_order}""")
-
 
 # check if banana has a left child
 print(f"{node} has left child? {node.has_left_child()}")
@@ -140,12 +108,19 @@ if node.has_left_child():
     node = node.get_left_child()
     stack.push(node)
 
-# print(f"""
-# visit_order {visit_order}
-# stack:
-# {stack}
-# """)
+print(f"""
+visit_order {visit_order} 
+stack:
+{stack}
+""")
 
 # visit dates
 visit_order.append(node.get_value())
 print(f"visit order {visit_order}")
+
+
+# check if "dates" has a left child
+print(f"{node} has left child? {node.has_left_child()}")
+
+# since dates doesn't have a left child, we'll check if it has a right child
+print(f"{node} has right child? {node.has_right_child()}")
