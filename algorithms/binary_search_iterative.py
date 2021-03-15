@@ -10,11 +10,24 @@ def binary_search(array, target):
       -1: if the target is not found
     '''
 
-    if target in array:
-        return array.index(target)
+    left = 0
+    right = len(array)
+    middle = len(array) // 2
 
+    while True:
+        if target == target:
+            return target
+
+        if target > array[middle]:
+            left = middle
+
+        if target < array[middle]:
+            right = middle
+    return -1
 
 # test
+
+
 def test_function(test_case):
     answer = binary_search(test_case[0], test_case[1])
     if answer == test_case[2]:
