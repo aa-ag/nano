@@ -13,24 +13,18 @@ def binary_search_recursive(array, target, start_index=0, end_index=0):
 
 
 def binary_search_recursive_soln(array, target, start_index, end_index):
+    if start_index > end_index:
+        return -1
 
     mid_index = (start_index + end_index)//2
-
     mid_element = array[mid_index]
 
-    if target == mid_element:
+    if mid_element == target:
         return mid_index
-
     elif target < mid_element:
-        end_index = mid_index - 1
-        return binary_search_recursive_soln(array, target, start_index, end_index)
-
-    elif target > mid_element:
-        start_index = mid_element + 1
-        return binary_search_recursive_soln(array, target, start_index, end_index)
-
+        return binary_search_recursive_soln(array, target, start_index, mid_index - 1)
     else:
-        return -1
+        return binary_search_recursive_soln(array, target, mid_index + 1, end_index)
 
 
 # test
@@ -45,5 +39,12 @@ def test_function(test_case):
 array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 target = 4
 index = 4
+test_case = [array, target, index]
+test_function(test_case)
+
+
+array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+target = 11
+index = 11
 test_case = [array, target, index]
 test_function(test_case)
