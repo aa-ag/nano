@@ -9,7 +9,9 @@ def binary_search(array, target):
       int: the index of the target, if found, in the source
       -1: if the target is not found
     '''
-    pass
+
+    if target in array:
+        return array.index(target)
 
 
 # test
