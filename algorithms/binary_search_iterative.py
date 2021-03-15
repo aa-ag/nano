@@ -10,24 +10,33 @@ def binary_search(array, target):
       -1: if the target is not found
     '''
 
-    left = 0
-    right = len(array)
-    middle = len(array) // 2
+    start_index = 0
+    end_index = len(array) - 1
 
-    while True:
-        if target == target:
-            return target
+    while start_index <= end_index:
+        # integer division in Python 3
+        mid_index = (start_index + end_index)//2
 
-        if target > array[middle]:
-            left = middle
+        mid_element = array[mid_index]
 
-        if target < array[middle]:
-            right = middle
+        # we have found the element
+        if target == mid_element:
+            return mid_index
+
+        # the target is less than mid element
+        # we will only search in the left half
+        elif target < mid_element:
+            end_index = mid_index - 1
+
+        # the target is greater than mid element
+        else:
+            # we will search only in the right half
+            start_index = mid_element + 1
+
     return -1
 
+
 # test
-
-
 def test_function(test_case):
     answer = binary_search(test_case[0], test_case[1])
     if answer == test_case[2]:
