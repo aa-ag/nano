@@ -11,7 +11,7 @@ def recursive_binary_search(target, source, left=0):
 
 
 def contains(target, source):
-    return recursive_binary_search(target, source) != None
+    return recursive_binary_search(target, source) is not None
 
 
 letters = ['a', 'c', 'd', 'f', 'g']
