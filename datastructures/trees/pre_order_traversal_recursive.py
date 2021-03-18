@@ -77,12 +77,9 @@ class Stack():
 
 
 def pre_order(tree):
-    # first, set a list to track
-    # visit order
+
     visit_order = list()
 
-    # then have a nested function
-    # traverse()
     def traverse(node):
         if node:
             # visit the node
@@ -96,7 +93,7 @@ def pre_order(tree):
 
     traverse(tree.get_root())
 
-    return visit_order
+    print(visit_order)
 
 
 tree = Tree("apple")
