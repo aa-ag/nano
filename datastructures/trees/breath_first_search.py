@@ -1,4 +1,7 @@
+from collections import deque
+
 # this code makes the tree that we'll traverse
+
 
 class Node(object):
 
@@ -51,3 +54,9 @@ tree = Tree("apple")
 tree.get_root().set_left_child(Node("banana"))
 tree.get_root().set_right_child(Node("cherry"))
 tree.get_root().get_left_child().set_left_child(Node("dates"))
+
+
+q = deque()
+q.appendleft("apple")
+q.appendleft("banana")
+print(q)
