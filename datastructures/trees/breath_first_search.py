@@ -60,3 +60,7 @@ q = deque()
 q.appendleft("apple")
 q.appendleft("banana")
 print(q)
+
+q.pop()
+print(q)
+len(q)
