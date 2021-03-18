@@ -42,20 +42,6 @@ class Node(object):
         return f"Node({self.get_value()})"
 
 
-class Tree():
-    def __init__(self, value=None):
-        self.root = Node(value)
-
-    def get_root(self):
-        return self.root
-
-
-tree = Tree("apple")
-tree.get_root().set_left_child(Node("banana"))
-tree.get_root().set_right_child(Node("cherry"))
-tree.get_root().get_left_child().set_left_child(Node("dates"))
-
-
 class Queue():
     def __init__(self):
         self.q = deque()
@@ -82,27 +68,88 @@ class Queue():
             return "<queue is empty>"
 
 
+class Tree():
+    def __init__(self, value=None):
+        self.root = Node(value)
+
+    def get_root(self):
+        return self.root
+
+    def __repr__(self):
+        level = 0
+        q = Queue()
+        visit_order = list()
+        node = self.get_root()
+        q.enq((node, level))
+        while(len(q) > 0):
+            node, level = q.deq()
+            if node == None:
+                visit_order.append(("<empty>", level))
+                continue
+            visit_order.append((node, level))
+            if node.has_left_child():
+                q.enq((node.get_left_child(), level + 1))
+            else:
+                q.enq((None, level + 1))
+
+            if node.has_right_child():
+                q.enq((node.get_right_child(), level + 1))
+            else:
+                q.enq((None, level + 1))
+
+        s = "Tree\n"
+        previous_level = -1
+        for i in range(len(visit_order)):
+            node, level = visit_order[i]
+            if level == previous_level:
+                s += " | " + str(node)
+            else:
+                s += "\n" + str(node)
+                previous_level = level
+
+        return s
+
+
+tree = Tree("apple")
+tree.get_root().set_left_child(Node("banana"))
+tree.get_root().set_right_child(Node("cherry"))
+tree.get_root().get_left_child().set_left_child(Node("dates"))
+print(tree)
+
+
 # BFS algorithm
-def bfs(tree):
-    visit_order = list()
-    q = Queue()
+# def bfs(tree):
+#     # create a queue
+#     q = Queue()
 
-    node = tree.get_root()
-    q.enq(node)
+#     # create a list to keep track
+#     # of visit order
+#     visit_order = list()
 
-    while len(q) > 0:
+#     # start at root
+#     node = tree.get_root()
 
-        node = q.deq()
-        visit_order.append(node)
+#     # add root to queue
+#     q.enq(node)
 
-        if node.has_left_child():
-            q.enq(node.get_left_child())
-        if node.has_right_child():
-            q.enq(node.get_right_child())
+#     # while q isn't empty
+#     while len(q) > 0:
 
-    print(f"visit order: {visit_order}")
-    print(q)
+#         # dequeue the node
+#         node = q.deq()
+#         # visit node
+#         visit_order.append(node)
+
+#         # add left child if it exists
+#         # same for right child
+#         if node.has_left_child():
+#             q.enq(node.get_left_child())
+#         if node.has_right_child():
+#             q.enq(node.get_right_child())
+
+#     print(f"visit order: {visit_order}")
+#     print(q)
 
 
-# check solution: should be: apple, banana, cherry, dates
-bfs(tree)
+# # check solution: should be: apple, banana, cherry, dates
+# bfs(tree)
