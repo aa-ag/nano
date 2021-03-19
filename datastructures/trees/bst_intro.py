@@ -104,33 +104,33 @@ class Tree():
     can use a for loop (try one or both ways)
     """
 
-    def insert_with_loop(self, new_value):
-        new_node = Node(new_value)
+    # def insert_with_loop(self, new_value):
+    #     new_node = Node(new_value)
 
-        node = self.get_root()
+    #     node = self.get_root()
 
-        if node == None:
-            self.root = new_node
-            return
+    #     if node == None:
+    #         self.root = new_node
+    #         return
 
-        while True:
-            comparison = self.compare(node, new_node)
-            if comparison == 0:
-                node.set_value(new_node.get_value())
-                break
-            elif comparison == -1:
-                if node.has_left_child():
-                    node = node.get_left_child()
-                else:
-                    node.set_left_child(new_node)
-                    break
+    #     while True:
+    #         comparison = self.compare(node, new_node)
+    #         if comparison == 0:
+    #             node.set_value(new_node.get_value())
+    #             break
+    #         elif comparison == -1:
+    #             if node.has_left_child():
+    #                 node = node.get_left_child()
+    #             else:
+    #                 node.set_left_child(new_node)
+    #                 break
 
-            else:
-                if node.has_right_child():
-                    node = node.get_right_child()
-                else:
-                    node.set_right_child(new_node)
-                    break
+    #         else:
+    #             if node.has_right_child():
+    #                 node = node.get_right_child()
+    #             else:
+    #                 node.set_right_child(new_node)
+    #                 break
 
     """
     define insert here (can use recursion)
@@ -138,7 +138,28 @@ class Tree():
     """
 
     def insert_with_recursion(self, value):
-        pass
+        if self.get_root() == None:
+            self.set_root(value)
+            return
+
+        self.insert_recursively(self.get_root(), Node(value))
+
+    def insert_recursively(self, node, new_node):
+        comparison = self.compare(node, new_node)
+
+        if comparison == 0:
+            node.set_value(new_node.get_value())
+        elif comparison == -1:
+            if node.has_left_child():
+                self.insert_recursively(node.get_left_child(), new_node)
+            else:
+                node.set_left_child(new_node)
+
+        else:
+            if node.has_right_child():
+                self.insert_recursively(node.get_right_child(), new_node)
+            else:
+                node.set_right_child(new_node)
 
     def __repr__(self):
         level = 0
@@ -175,19 +196,19 @@ class Tree():
         return s
 
 
-tree = Tree()
-tree.insert_with_loop(5)
-tree.insert_with_loop(6)
-tree.insert_with_loop(4)
-tree.insert_with_loop(2)
-tree.insert_with_loop(5)  # insert duplicate
-print(tree)
-
-
 # tree = Tree()
-# tree.insert_with_recursion(5)
-# tree.insert_with_recursion(6)
-# tree.insert_with_recursion(4)
-# tree.insert_with_recursion(2)
-# tree.insert_with_recursion(5)  # insert duplicate
+# tree.insert_with_loop(5)
+# tree.insert_with_loop(6)
+# tree.insert_with_loop(4)
+# tree.insert_with_loop(2)
+# tree.insert_with_loop(5)  # insert duplicate
 # print(tree)
+
+
+tree = Tree()
+tree.insert_with_recursion(5)
+tree.insert_with_recursion(6)
+tree.insert_with_recursion(4)
+tree.insert_with_recursion(2)
+tree.insert_with_recursion(5)  # insert duplicate
+print(tree)
