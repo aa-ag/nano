@@ -51,7 +51,31 @@ def path_from_root_to_node(root, data):
     TODO: complete this method and return a list containing values of each node in the path
     from root to the data node
     """
-    pass
+    answer = path_from_node_to_root(root, data)
+    return list(reversed(answer))
+
+
+def path_from_node_to_root(root, data):
+
+    if root is None:
+        return None
+
+    elif root.data == data:
+        return [data]
+
+    left_answer = path_from_node_to_root(root.left, data)
+
+    if left_answer is not None:
+        left_answer.append(root.data)
+        return left_answer
+
+    right_answer = path_from_node_to_root(root.right, data)
+
+    if right_answer is not None:
+        right_answer.append(root.data)
+        return right_answer
+
+    return None
 
 
 # tests
