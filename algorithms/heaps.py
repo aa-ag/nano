@@ -36,3 +36,9 @@ class Heap:
         self.cbt[self.next_index] = to_remove
         self._down_heapify()
         return to_remove
+
+    def size(self):
+        return self.next_index
+
+    def is_empty(self):
+        return self.size() == 0
