@@ -26,6 +26,6 @@ class RedBlackTree(object):
             else:
                 current.left = Node(new_val, current, 'red')
 
-    def rebalance(node):
+    def rebalance(self, node):
         if node.parent == None:
             return
