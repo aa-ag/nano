@@ -59,3 +59,46 @@ class Heap:
                 child_index = parent_index
             else:
                 break
+
+    def _down_heapify(self):
+        parent_index = 0
+
+        while parent_index < self.next_index:
+            left_child_index = 2 * parent_index + 1
+            right_child_index = 2 * parent_index + 2
+
+            parent = self.cbt[parent_index]
+            left_child = None
+            right_child = None
+
+            min_element = parent
+
+            # check if left child exists
+            if left_child_index < self.next_index:
+                left_child = self.cbt[left_child_index]
+
+            # check if right child exists
+            if right_child_index < self.next_index:
+                right_child = self.cbt[right_child_index]
+
+            # compare with left child
+            if left_child is not None:
+                min_element = min(parent, left_child)
+
+            # compare with right child
+            if right_child is not None:
+                min_element = min(right_child, min_element)
+
+            # check if parent is rightly placed
+            if min_element == parent:
+                return
+
+            if min_element == left_child:
+                self.cbt[left_child_index] = parent
+                self.cbt[parent_index] = min_element
+                parent = left_child_index
+
+            elif min_element == right_child:
+                self.cbt[right_child_index] = parent
+                self.cbt[parent_index] = min_element
+                parent = right_child_index
