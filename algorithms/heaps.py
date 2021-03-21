@@ -20,3 +20,19 @@ class Heap:
 
             for index in range(self.next_index):
                 self.cbt[index] = temp[index]
+
+    def remove(self):
+        if self.size() == 0:
+            return None
+        self.next_index -= 1
+
+        to_remove = self.cbt[0]
+        last_element = self.cbt[self.next_index]
+
+        # place last element of the cbt at the root
+        self.cbt[0] = last_element
+
+        # we do not remove the elementm, rather we allow next `insert` operation to overwrite it
+        self.cbt[self.next_index] = to_remove
+        self._down_heapify()
+        return to_remove
