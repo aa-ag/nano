@@ -102,3 +102,9 @@ class Heap:
                 self.cbt[right_child_index] = parent
                 self.cbt[parent_index] = min_element
                 parent = right_child_index
+
+    def get_minimum(self):
+        # Returns the minimum element present in the heap
+        if self.size() == 0:
+            return None
+        return self.cbt[0]
