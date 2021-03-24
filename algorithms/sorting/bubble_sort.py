@@ -8,7 +8,16 @@
 
 
 def bubble_sort_1(l):
-    pass
+    for iteration in range(len(l)):
+        for index in range(1, len(l)):
+            this = l[index]
+            prev = l[index - 1]
+
+            if prev <= this:
+                continue
+
+            l[index] = prev
+            l[index - 1] = this
 
 
 wakeup_times = [16, 49, 3, 12, 56, 49, 55, 22,
