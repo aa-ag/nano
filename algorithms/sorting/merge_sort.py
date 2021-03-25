@@ -41,5 +41,10 @@ def merge(left, right):
 
 
 # Test this out
-merged = merge([1, 3, 7], [2, 5, 6])
-print(merged)
+test_list_1 = [8, 3, 1, 7, 0, 10, 2]
+test_list_2 = [1, 0]
+test_list_3 = [97, 98, 99]
+
+print('{} to {}'.format(test_list_1, mergesort(test_list_1)))
+print('{} to {}'.format(test_list_2, mergesort(test_list_2)))
+print('{} to {}'.format(test_list_3, mergesort(test_list_3)))
