@@ -1,18 +1,14 @@
 def mergesort(items):
-    # Base case, a list of 0 or 1 items is already sorted
     if len(items) <= 1:
         return items
 
-    # Otherwise, find the midpoint and split the list
-    # TODO
-    # left =
-    # right =
+    mid = len(items) // 2
+    left = items[:mid]
+    right = items[mid:]
 
-    # Call mergesort recursively with the left and right half
     left = mergesort(left)
     right = mergesort(right)
 
-    # Merge our two halves and return
     return merge(left, right)
 
 
