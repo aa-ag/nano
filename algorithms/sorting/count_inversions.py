@@ -1,6 +1,12 @@
 def count_inversions(arr):
-    # TODO: Complete this function
-    pass
+    inversions = 0
+
+    for i in range(len(arr) - 1):
+        for j in range(len(arr)):
+            if i < j and arr[i] > arr[j]:
+                inversions += 1
+
+    return inversions
 
 
 # testing
