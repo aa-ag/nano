@@ -13,13 +13,25 @@ to be in the correct positions as well.
 
 
 def sort_012(input_list):
-    pass
+    zeros = list()
+    ones = list()
+    twos = list()
+
+    for i in input_list:
+        if i == 0:
+            zeros.append(i)
+        elif i == 1:
+            ones.append(i)
+        elif i == 2:
+            twos.append(i)
+
+    answer = zeros + ones + twos
+    return answer
 
 
 # tests
 def test_function(test_case):
     sort_012(test_case)
-    print(test_case)
     if test_case == sorted(test_case):
         print("Pass")
     else:
