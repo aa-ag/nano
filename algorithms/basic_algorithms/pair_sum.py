@@ -1,16 +1,15 @@
 def pair_sum(a, t):
-    def pair_sum(arr, target):
-        # sort the list
-    arr.sort()
+    # sort the list
+    a.sort()
 
     # initialize two pointer - one from start of the array and other from the end
     front_index = 0
-    back_index = len(arr) - 1
+    back_index = len(a) - 1
 
     # shift the pointers
     while front_index < back_index:
-        front = arr[front_index]
-        back = arr[back_index]
+        front = a[front_index]
+        back = a[back_index]
 
         if front + back == target:
             return [front, back]
