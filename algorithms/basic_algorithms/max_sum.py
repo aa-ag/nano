@@ -1,15 +1,21 @@
-def maxSubArray(arr):
-    '''
-    param: An array `arr`
-    return: The maximum sum of the contiguous subarray. 
-    No need to return the subarray itself.
-    '''
-    pass
+'''
+maxSubArrayRecursive(arr, start, stop)     T(n)
+  1. if (start==stop):
+      return arr[start]
+
+  2. Calculate mid index       constant
+
+  3. L = maxSubArrayRecursive(arr, start, mid)       T( 𝑛2 )
+
+  4. R = maxSubArrayRecursive(arr, mid+1, stop)       T( 𝑛2 )
+
+  5. C = maxCrossingSum(arr, start, mid, stop)         Θ(𝑛) 
+
+  6. return max(C, max(L,R))       constant
 
 
-# Test your code
-arr = [-2, 7, -6, 3, 1, -4, 5, 7]
-print("Maximum Sum = ", maxSubArray(arr))     # Outputs 13
+Total time of execution  𝑇(𝑛)  =  2∗𝑇(𝑛2)+Θ(𝑛)≡𝑂(𝑛𝑙𝑜𝑔𝑛)
+'''
 
 
 # Test your code
