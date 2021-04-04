@@ -26,6 +26,28 @@ class Graph:
         print("Distances are: ", self.distances)
 
 
+''' TO DO: Find the shortest path from the source node to every other node in the given graph '''
+
+
+def dijkstra(graph, source):
+    # Declare and initialize result, unvisited, and path
+
+    # As long as unvisited is non-empty
+    while unvisited:
+
+        # 1. Find the unvisited node having smallest known distance from the source node.
+
+        # 2. For the current node, find all the unvisited neighbours. For this, you have calculate the distance of each unvisited neighbour.
+
+        # 3. If the calculated distance of the unvisited neighbour is less than the already known distance in result dictionary, update the shortest distance in the result dictionary.
+
+        # 4. If there is an update in the result dictionary, you need to update the path dictionary as well for the same key.
+
+        # 5. Remove the current node from the unvisited set.
+
+    return result
+
+
 # Test 1
 testGraph = Graph()
 for node in ['A', 'B', 'C', 'D', 'E']:
