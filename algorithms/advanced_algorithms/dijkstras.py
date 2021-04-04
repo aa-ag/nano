@@ -24,3 +24,50 @@ class Graph:
         print("Set of Nodes are: ", self.nodes)
         print("Neighbours are: ", self.neighbours)
         print("Distances are: ", self.distances)
+
+
+# Test 1
+testGraph = Graph()
+for node in ['A', 'B', 'C', 'D', 'E']:
+    testGraph.add_node(node)
+
+testGraph.add_edge('A', 'B', 3)
+testGraph.add_edge('A', 'D', 2)
+testGraph.add_edge('B', 'D', 4)
+testGraph.add_edge('B', 'E', 6)
+testGraph.add_edge('B', 'C', 1)
+testGraph.add_edge('C', 'E', 2)
+testGraph.add_edge('E', 'D', 1)
+
+print(dijkstra(testGraph, 'A'))     # {'A': 0, 'D': 2, 'B': 3, 'E': 3, 'C': 4}
+
+
+# Test 2
+graph = Graph()
+for node in ['A', 'B', 'C']:
+    graph.add_node(node)
+
+graph.add_edge('A', 'B', 5)
+graph.add_edge('B', 'C', 5)
+graph.add_edge('A', 'C', 10)
+
+print(dijkstra(graph, 'A'))        # {'A': 0, 'C': 10, 'B': 5}
+
+
+# Test 3
+graph = Graph()
+for node in ['A', 'B', 'C', 'D', 'E', 'F']:
+    graph.add_node(node)
+
+graph.add_edge('A', 'B', 5)
+graph.add_edge('A', 'C', 4)
+graph.add_edge('D', 'C', 1)
+graph.add_edge('B', 'C', 2)
+graph.add_edge('A', 'D', 2)
+graph.add_edge('B', 'F', 2)
+graph.add_edge('C', 'F', 3)
+graph.add_edge('E', 'F', 2)
+graph.add_edge('C', 'E', 1)
+
+# {'A': 0, 'C': 3, 'B': 5, 'E': 4, 'D': 2, 'F': 6}
+print(dijkstra(graph, 'A'))
