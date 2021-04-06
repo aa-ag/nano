@@ -1,11 +1,38 @@
 def min_platforms(arrival, departure):
-    """
-    :param: arrival - list of arrival time
-    :param: departure - list of departure time
-    TODO - complete this method and return the minimum number of platforms (int) required
-    so that no train has to wait for other(s) to leave
-    """
-    return
+    if(len(arrival) != len(departure)):  # Mismatch in the length of the lists
+        return -1
+
+    # Sort both the lists.
+    arrival.sort()
+    departure.sort()
+
+    # Count of platforms required at the moment when comparing i^th arrival and j^th departure
+    platform_required = 1
+    max_platform_required = 1          # Keep track of the max value of platform_required
+
+    # Iterate such that (i-j) will represent platform_required at that moment
+    i = 1
+    j = 0
+
+    # Traverse the arrival list with iterator `i`, and departure with iterator `j`.
+    while i < len(arrival) and j < len(arrival):
+
+        # if i^th arrival is scheduled before than j^th departure,
+        # increment platform_required and i as well.
+        if arrival[i] < departure[j]:
+            platform_required += 1
+            i += 1
+
+            # Update the max value of platform_required
+            if platform_required > max_platform_required:
+                max_platform_required = platform_required
+
+        # Otherwise, decrement platform_required count, and increase j.
+        else:
+            platform_required -= 1
+            j += 1
+
+    return max_platform_required
 
 
 def test_function(test_case):
