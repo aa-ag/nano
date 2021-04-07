@@ -5,15 +5,19 @@ def min_operations(target):
     input: target number (as an integer)
     output: number of steps (as an integer)
     """
-    temporary = 0
-    count = 0
-    while temporary < target:
-        pass
-        # if a certain type
-        # then + 1
-        # else * 2
-        # and also count + 1
-    # return count
+    num_steps = 0
+
+    # start backwards from the target
+    # if target is odd --> subtract 1
+    # if target is even --> divide by 2
+    while target != 0:
+        if target % 2 == 0:
+            target = target // 2
+
+        else:
+            target = target - 1
+        num_steps += 1
+    return num_steps
 
 
 # Test Cases
