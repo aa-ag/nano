@@ -1,11 +1,19 @@
 # Your solution
-def min_operations():
+def min_operations(target):
     """
     Return number of steps taken to reach a target number
     input: target number (as an integer)
     output: number of steps (as an integer)
     """
-    pass
+    temporary = 0
+    count = 0
+    while temporary < target:
+        pass
+        # if a certain type
+        # then + 1
+        # else * 2
+        # and also count + 1
+    # return count
 
 
 # Test Cases
