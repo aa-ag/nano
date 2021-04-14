@@ -70,3 +70,41 @@ graph.add_edge(node_t, node_y, 5)
 # Shortest Distance from U to Y is 14
 print('Shortest Distance from {} to {} is {}'.format(
     node_u.value, node_y.value, dijkstra(graph, node_u, node_y)))
+
+
+# Test Case 2
+node_A = GraphNode('A')
+node_B = GraphNode('B')
+node_C = GraphNode('C')
+
+graph = Graph([node_A, node_B, node_C])
+
+graph.add_edge(node_A, node_B, 5)
+graph.add_edge(node_B, node_C, 5)
+graph.add_edge(node_A, node_C, 10)
+
+# Shortest Distance from A to C is 10
+print('Shortest Distance from {} to {} is {}'.format(
+    node_A.value, node_C.value, dijkstra(graph, node_A, node_C)))
+
+
+# Test Case 3
+node_A = GraphNode('A')
+node_B = GraphNode('B')
+node_C = GraphNode('C')
+node_D = GraphNode('D')
+node_E = GraphNode('E')
+
+graph = Graph([node_A, node_B, node_C, node_D, node_E])
+
+graph.add_edge(node_A, node_B, 3)
+graph.add_edge(node_A, node_D, 2)
+graph.add_edge(node_B, node_D, 4)
+graph.add_edge(node_B, node_E, 6)
+graph.add_edge(node_B, node_C, 1)
+graph.add_edge(node_C, node_E, 2)
+graph.add_edge(node_E, node_D, 1)
+
+# Shortest Distance from A to C is 4
+print('Shortest Distance from {} to {} is {}'.format(
+    node_A.value, node_C.value, dijkstra(graph, node_A, node_C)))
